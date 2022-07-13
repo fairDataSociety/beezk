@@ -1,2 +1,4 @@
 # beezk
-bee zero knowledge library
+bee zero knowledge proofs boilerplate
+
+forked from https://github.com/ConsenSys/gnark-tests
