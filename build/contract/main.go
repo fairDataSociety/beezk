@@ -4,8 +4,9 @@ import (
 	"os"
 
 	"github.com/consensys/gnark-crypto/ecc"
+	"github.com/consensys/gnark-tests/circuits/age18orOlder"
 	"github.com/consensys/gnark/backend/groth16"
-	"github.com/consensys/gnark/examples/cubic"
+
 	"github.com/consensys/gnark/frontend"
 	"github.com/consensys/gnark/frontend/cs/r1cs"
 )
@@ -14,7 +15,7 @@ import (
 // note: this is not in go generate format to avoid solc dependency in circleCI for now.
 // go run contract/main.go && abigen --sol contract.sol --pkg solidity --out solidity.go
 func main() {
-	var circuit cubic.Circuit
+	var circuit age18orOlder.Circuit
 
 	r1cs, err := frontend.Compile(ecc.BN254, r1cs.NewBuilder, &circuit)
 	if err != nil {
@@ -26,7 +27,7 @@ func main() {
 		panic(err)
 	}
 	{
-		f, err := os.Create("cubic.vk")
+		f, err := os.Create("age18OrOlder.vk")
 		if err != nil {
 			panic(err)
 		}
@@ -36,7 +37,7 @@ func main() {
 		}
 	}
 	{
-		f, err := os.Create("cubic.pk")
+		f, err := os.Create("age18OrOlder.pk")
 		if err != nil {
 			panic(err)
 		}

@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "npx hardhat test",
+    "compile:circuit": "cd build && go run contract/main.go && cd ..",
     "compile": "npx hardhat compile",    
     "env:start-base": "fdp-play start --detach --blockchain-image fairdatasociety/fdp-play-blockchain 1.6.1",
     "env:stop-base": "fdp-play stop"      
